@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDS Foodcourt - Tenant</title>
+    
+    <!-- Menggunakan Tailwind CSS via CDN agar file bisa langsung jalan -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Mengganti font Archivo menjadi Plus Jakarta Sans untuk kesan lebih modern & hangat -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            500: '#f97316',
+                            600: '#ea580c',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Mengganti border tebal dengan efek hover bayangan lembut */
+        .card-hover {
+            transition: all 0.3s ease-in-out;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-[#F8F9FA] min-h-screen p-4 md:p-6 text-slate-800">
+    
+    <!-- Header KDS -->
+    <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-slate-100">
+        <div>
+            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">Dapur: Tenant Omah Mangan PW</h1>
+            <p class="text-slate-500 mt-1 font-medium">Kitchen Display System (KDS) &bull; 5 Pesanan Aktif</p>
+        </div>
+        <div class="text-left md:text-right">
+            <p class="text-3xl font-extrabold text-brand-600" id="clock">20:31</p>
+            <p class="text-sm text-slate-500 font-semibold mt-1">Selasa, 15 Sep 2026</p>
+        </div>
+    </header>
+
+    <!-- KDS Grid System (Layout Pesanan) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        
+        <!-- Kartu 1: Pesanan Baru (Warna Hangat/Amber) -->
+        <div class="bg-amber-50 border border-amber-200/60 rounded-2xl p-5 shadow-sm card-hover flex flex-col h-full relative overflow-hidden">
+            <!-- Aksen garis di atas kartu -->
+            <div class="absolute top-0 left-0 w-full h-1 bg-amber-400"></div>
+            
+            <div class="flex justify-between items-start mb-5">
+                <div class="bg-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm">
+                    Baru Masuk
+                </div>
+                <div class="text-amber-700 font-semibold text-sm flex items-center gap-1.5 bg-amber-100/50 px-2.5 py-1 rounded-md">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    2 mnt lalu
+                </div>
+            </div>
+            
+            <!-- UX KDS: Nomor pesanan dibuat sangat besar agar koki mudah melihat -->
+            <div class="mb-5">
+                <p class="text-amber-700/70 text-sm font-semibold mb-1 uppercase tracking-wider">No. Antrean</p>
+                <h2 class="text-6xl font-extrabold text-amber-900 tracking-tighter">#042</h2>
+            </div>
+            
+            <div class="flex-grow bg-white/80 rounded-xl p-4 mb-5 border border-amber-100">
+                <ul class="space-y-3">
+                    <li class="flex justify-between items-start text-lg font-bold text-slate-800">
+                        <span>2x Nasi Goreng Spesial</span>
+                    </li>
+                    <li class="flex justify-between items-start text-lg font-bold text-slate-800">
+                        <span>1x Es Teh Manis</span>
+                    </li>
+                </ul>
+                <div class="mt-4 pt-3 border-t border-amber-200/50">
+                    <p class="text-sm font-semibold text-amber-800 bg-amber-100 p-2.5 rounded-lg flex gap-2 items-start">
+                        <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Catatan: Pedas sedang, tehnya jangan terlalu manis yaa
+                    </p>
+                </div>
+            </div>
+            
+            <button class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 rounded-xl text-lg shadow-md hover:shadow-lg transition-all focus:ring-4 focus:ring-amber-200 outline-none">
+                Mulai Masak
+            </button>
+        </div>
+
+        <!-- Kartu 2: Sedang Dimasak (Warna Biru/Sejuk) -->
+        <div class="bg-blue-50 border border-blue-200/60 rounded-2xl p-5 shadow-sm card-hover flex flex-col h-full relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-blue-500"></div>
+            
+            <div class="flex justify-between items-start mb-5">
+                <div class="bg-blue-500 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    Dimasak
+                </div>
+                <div class="text-blue-700 font-semibold text-sm bg-blue-100/50 px-2.5 py-1 rounded-md">
+                    Target: 5 mnt
+                </div>
+            </div>
+            
+            <div class="mb-5">
+                <p class="text-blue-700/70 text-sm font-semibold mb-1 uppercase tracking-wider">No. Antrean</p>
+                <h2 class="text-6xl font-extrabold text-blue-900 tracking-tighter">#040</h2>
+            </div>
+            
+            <div class="flex-grow bg-white/80 rounded-xl p-4 mb-5 border border-blue-100">
+                <ul class="space-y-3">
+                    <li class="flex justify-between text-lg font-bold text-slate-800">
+                        <span>1x Mie Kuah Nyemek</span>
+                    </li>
+                    <li class="flex justify-between text-lg font-bold text-slate-800">
+                        <span>1x Jeruk Panas</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl text-lg shadow-md hover:shadow-lg transition-all focus:ring-4 focus:ring-blue-200 outline-none">
+                Tandai Selesai
+            </button>
+        </div>
+        
+        <!-- Kartu 3: Selesai / Siap Diambil (Warna Hijau) -->
+        <div class="bg-pink-50 border border-pink-200/60 rounded-2xl p-5 shadow-sm card-hover flex flex-col h-full opacity-80 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-pink-500"></div>
+            
+            <div class="flex justify-between items-start mb-5">
+                <div class="bg-pink-500 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm">
+                    Siap Diambil
+                </div>
+                <div class="text-pink-700 font-bold text-sm bg-pink-100/50 px-2.5 py-1 rounded-md">
+                    Selesai
+                </div>
+            </div>
+            
+            <div class="mb-5">
+                <p class="text-pink-700/70 text-sm font-semibold mb-1 uppercase tracking-wider">No. Antrean</p>
+                <h2 class="text-6xl font-extrabold text-pink-900 tracking-tighter">#039</h2>
+            </div>
+            
+            <div class="flex-grow bg-white/60 rounded-xl p-4 mb-5 border border-pink-100/50">
+                <ul class="space-y-3">
+                    <li class="flex justify-between text-lg font-bold text-slate-800 line-through text-slate-400">
+                        <span>3x Paket Ayam Bakar</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <button class="w-full bg-pink-100 text-pink-800 hover:bg-pink-200 hover:text-pink-900 font-bold py-4 rounded-xl text-lg transition-all outline-none">
+                Hapus dari Layar
+            </button>
+        </div>
+
+    </div>
+</body>
+</html>

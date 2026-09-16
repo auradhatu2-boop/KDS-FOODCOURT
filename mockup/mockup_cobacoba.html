@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Tenant - Kantin Multi-Tenant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans antialiased text-gray-800">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 bg-slate-900 text-white flex flex-col hidden md:flex">
+            <div class="h-16 flex items-center justify-center border-b border-slate-700">
+                <h1 class="text-xl font-bold tracking-wider">KANTIN<span class="text-emerald-400">HUB</span></h1>
+            </div>
+            <div class="p-4">
+                <div class="flex items-center gap-3 mb-6 bg-slate-800 p-3 rounded-lg border border-slate-700">
+                    <div class="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center font-bold text-lg">
+                        WS
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold">Waroeng Sejahtera</p>
+                        <p class="text-xs text-emerald-400 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> Buka</p>
+                    </div>
+                </div>
+                <nav class="space-y-2">
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 bg-emerald-600 rounded-lg text-white font-medium transition-colors"><i class="fa-solid fa-list-check w-5"></i> Antrean Pesanan</a>
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-lg text-gray-300 transition-colors"><i class="fa-solid fa-utensils w-5"></i> Kelola Menu</a>
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-slate-800 rounded-lg text-gray-300 transition-colors"><i class="fa-solid fa-chart-line w-5"></i> Laporan Harian</a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col h-screen overflow-hidden relative">
+            
+            <!-- Top Header -->
+            <header class="h-16 bg-white shadow-sm flex items-center justify-between px-6 z-10">
+                <h2 class="text-xl font-bold text-gray-800">Antrean Pesanan Live</h2>
+                <div class="flex items-center gap-4">
+                    </button class="relative p-2 text-gray-400 hover:text-gray-600 transition-colors">
+                        <i class="fa-regular fa-bell text-xl"></i>
+                        <span class="absolute top-1 right-1 flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                        </span>
+                    </button>
+                    <div class="h-8 w-px bg-gray-300"></div>
+                    <button class="text-sm font-medium text-gray-600 hover:text-gray-900"><i class="fa-solid fa-arrow-right-from-bracket mr-2"></i>Keluar</button>
+                </div>
+            </header>
+
+            <!-- Kanban Board -->
+            <div class="flex-1 overflow-x-auto overflow-y-hidden p-6">
+                <div class="flex gap-6 h-full min-w-max pb-4">
+                    
+                    <!-- Kolom 1: Pesanan Baru (Menunggu Konfirmasi) -->
+                    <div class="w-80 flex flex-col bg-gray-50 rounded-xl border border-gray-200">
+                        <div class="p-4 border-b border-gray-200 flex justify-between items-center bg-white rounded-t-xl">
+                            <h3 class="font-bold text-gray-700 flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-blue-500"></span> Pesanan Baru
+                            </h3>
+                            <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded-full">2</span>
+                        </div>
+                        <div class="p-3 flex-1 overflow-y-auto space-y-3">
+                            
+                            <!-- Card Pesanan -->
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-l-4 border-l-blue-500 hover:shadow-md transition-shadow">
+                                <div class="flex justify-between items-start mb-2">
+                                    <span class="text-xs font-bold text-gray-500">#ORD-992A</span>
+                                    <span class="text-xs text-gray-400"><i class="fa-regular fa-clock"></i> 2 mnt lalu</span>
+                                </div>
+                                <h4 class="font-bold text-gray-800 mb-1">Meja 12 - Budi</h4>
+                                <ul class="text-sm text-gray-600 mb-3 space-y-1">
+                                    <li class="flex justify-between"><span>2x Nasi Goreng Gila</span> <span class="font-medium">Rp 40.000</span></li>
+                                    <li class="flex justify-between"><span>1x Es Teh Manis</span> <span class="font-medium">Rp 5.000</span></li>
+                                    <li class="text-xs text-orange-500 bg-orange-50 p-1 rounded mt-1"><i class="fa-solid fa-circle-exclamation"></i> Catatan: Pedes banget bang!</li>
+                                </ul>
+                                <div class="flex gap-2 mt-3">
+                                    <button class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-1.5 rounded text-sm font-medium transition-colors">Proses</button>
+                                    <button class="flex-1 bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 py-1.5 rounded text-sm font-medium transition-colors">Tolak</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Kolom 2: Sedang Dimasak -->
+                    <div class="w-80 flex flex-col bg-gray-50 rounded-xl border border-gray-200">
+                        <div class="p-4 border-b border-gray-200 flex justify-between items-center bg-white rounded-t-xl">
+                            <h3 class="font-bold text-gray-700 flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-orange-500"></span> Sedang Dimasak
+                            </h3>
+                            <span class="bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded-full">1</span>
+                        </div>
+                        <div class="p-3 flex-1 overflow-y-auto space-y-3">
+                            <!-- Card Pesanan -->
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-l-4 border-l-orange-500 opacity-90 cursor-grab">
+                                <div class="flex justify-between items-start mb-2">
+                                    <span class="text-xs font-bold text-gray-500">#ORD-991B</span>
+                                    <span class="text-xs text-orange-500 font-medium animate-pulse">Memasak...</span>
+                                </div>
+                                <h4 class="font-bold text-gray-800 mb-1">Takeaway - Sisca</h4>
+                                <ul class="text-sm text-gray-600 mb-3 space-y-1">
+                                    <li class="flex justify-between"><span>1x Mie Dok-Dok</span></li>
+                                </ul>
+                                <button class="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-2 rounded text-sm font-bold transition-colors shadow-sm"><i class="fa-solid fa-check mr-1"></i> Siap Diambil</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kolom 3: Siap Diambil -->
+                    <div class="w-80 flex flex-col bg-gray-50 rounded-xl border border-gray-200">
+                        <div class="p-4 border-b border-gray-200 flex justify-between items-center bg-white rounded-t-xl">
+                            <h3 class="font-bold text-gray-700 flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Siap Diambil
+                            </h3>
+                            <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-1 rounded-full">0</span>
+                        </div>
+                        <div class="p-3 flex-1 overflow-y-auto space-y-3 flex flex-col items-center justify-center text-gray-400">
+                            <i class="fa-solid fa-plate-wheat text-4xl mb-2"></i>
+                            <p class="text-sm text-center">Belum ada pesanan yang<br>menunggu diambil</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
